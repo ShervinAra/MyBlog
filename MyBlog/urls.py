@@ -1,5 +1,10 @@
-from django.conf.urls import patterns, include, url
-from MyBlog.views import *
+import os
+
+from django.conf.urls import *
+from django.contrib import admin
+from django.conf import settings
+
+admin.autodiscover()
 
 # Uncomment the next two lines to enable the admin:
 # from django.contrib import admin
@@ -14,7 +19,14 @@ urlpatterns = patterns('',
     # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
 
     # Uncomment the next line to enable the admin:
-    #url(r'^admin/', include(admin.site.urls)),
+    url(r'^admin/', include(admin.site.urls)),
     #(r'^admin/', include(admin.site.urls)),
-    (r'^$' , homepage),
+    (r'^$' , "MyBlog.views.homepage"),
+)
+# Local media serving.
+if settings.DEBUG:
+    urlpatterns += patterns('',
+            (r'^statics/(?P<path>.*)$', 'django.views.static.serve',
+             {'document_root': os.path.join(os.path.dirname(__file__),\
+                                    '../statics').replace('\\', '/')}),
 )
