@@ -4,10 +4,10 @@
 {%block main%}
 	<div id="top_header"> 
 		<ul>
-			<img src="/statics/pictures/shervin.jpg" height="80" width="60">
+			<img src="/statics/pictures/shervin.jpg" height="80" width="60" id="avatar">
 			<span><sup><sup>My Blog</sup></sup></span> 
-			<li><a href="">Home</a></li>
-			<li><a href="">About Me</a></li>
+			<li><a href="home">Home</a></li>
+			<li><a href="about">About Me</a></li>
 			</ul>
 		
 	</div>
@@ -19,7 +19,7 @@
 		<div id="top_content">
 			<span>خوش آمدید، <span>{{now}}</span></span>
 			<div id="content">
-				<p>{{post}}</p>
+				<p>{{name}}:{{post}}</p>
 			</div>			
 		</div>
 		<br/>

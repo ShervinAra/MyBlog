@@ -22,7 +22,11 @@ urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
     #(r'^admin/', include(admin.site.urls)),
     (r'^$' , "MyBlog.views.homepage"),
-    (r'^index.html$' , "MyBlog.views.homepage"),
+    (r'^$' , "MyBlog.views.post"),
+    (r'^home$' , "MyBlog.views.homepage"),
+    (r'^home$' , "MyBlog.views.post"),
+    (r'^about$' , "MyBlog.views.about"),
+    
 )
 # Local media serving.
 if settings.DEBUG:
