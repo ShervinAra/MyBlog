@@ -6,8 +6,8 @@
 		<ul>
 			<img src="/statics/pictures/shervin.jpg" height="60" width="50">
 			<span><sup><sup>My Blog</sup></sup></span> 
-			<li><a href="#">Home</a></li>
-			<li><a href="#">About Me</a></li>
+			<li><a href="">Home</a></li>
+			<li><a href="">About Me</a></li>
 			</ul>
 		
 	</div>
@@ -16,15 +16,19 @@
 {%endblock%}
 
 {%block content%}
-		<div id="content">
+		<div id="top_content">
 			<span>خوش آمدید، <span>{{now}}</span></span>
+			<div id="content">
+				<p>{{post}}</p>								
+			</div>			
 		</div>
+		<br/>
 	</div>
 {%endblock%}
 
 {%block footer%}
-	<div>
-		
+	<div id="footer">
+		<span><sub>Footer</sub></span>
 	</div>
 {%endblock%}
 {%endblock%}
