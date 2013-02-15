@@ -1,5 +1,6 @@
 from django.db import models
 
+
 # Create your models here.
 class context(models.Model):
 	Name=models.CharField(max_length=30)
@@ -8,5 +9,5 @@ class context(models.Model):
 	Subject=models.CharField(max_length=30)
 	
 	def __unicode__(self):
-		return (self.Name)
+		return "%s - %s - %s" % (self.Name,self.Post,self.Subject) 
 	

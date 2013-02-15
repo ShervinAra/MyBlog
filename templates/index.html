@@ -6,7 +6,7 @@
 		<ul>
 			<img src="/statics/pictures/shervin.jpg" height="80" width="60" id="avatar">
 			<span><sup><sup>My Blog</sup></sup></span> 
-			<li><a href="home">Home</a></li>
+			<li><a href="/">Home</a></li>
 			<li><a href="about">About Me</a></li>
 			</ul>
 		
@@ -16,14 +16,18 @@
 {%endblock%}
 
 {%block content%}
+
 		<div id="top_content">
 			<span>خوش آمدید، <span>{{now}}</span></span>
 			<div id="content">
-				<p>{{name}}:{{post}}</p>
+			{% for i in post %}
+				<p>{{i.Name}} : <sub>{{i.Subject}}</sub><br/><br/>{{i.Post}}<br/></p>
+			{% endfor %}	
 			</div>			
 		</div>
 		<br/>
 	</div>
+
 {%endblock%}
 
 {%block footer%}
