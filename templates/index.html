@@ -5,9 +5,9 @@
 	<div id="top_header"> 
 		<ul>
 			<img src="/statics/pictures/shervin.jpg" height="80" width="60" id="avatar">
-			<span><sup><sup>My Blog</sup></sup></span> 
-			<li><a href="/">Home</a></li>
-			<li><a href="about">About Me</a></li>
+			<span style="font-family:Steve; color:#FFA500;"><sup><sup>My Blog</sup></sup></span> 
+			<li><a href="about">درباره من</a></li>
+			<li><a href="/">خانه</a></li>
 			</ul>
 		
 	</div>
@@ -20,11 +20,15 @@
 		<div id="top_content">
 			<span>خوش آمدید، <span>{{now}}</span></span>
 			<div id="content">
+			
 			{% for i in post %}
+			<div id="box">
 				<p id="context_subject">{{i.Subject}}:</p>
 				<p id="context_post">{{i.Post}}</p>
-				<p id="context_name">{{i.Name}}</p><br/>
-			{% endfor %}	
+				<p id="context_name">{{i.Name}} <sub>{{i.Date}}- {{i.Time}}</sub></p><br/>
+			</div>
+			{% endfor %}
+				
 			</div>			
 		</div>
 		<br/>
