@@ -21,7 +21,9 @@
 			<span>خوش آمدید، <span>{{now}}</span></span>
 			<div id="content">
 			{% for i in post %}
-				<p>{{i.Name}} : <sub>{{i.Subject}}</sub><br/><br/>{{i.Post}}<br/></p>
+				<p id="context_subject">{{i.Subject}}:</p>
+				<p id="context_post">{{i.Post}}</p>
+				<p id="context_name">{{i.Name}}</p><br/>
 			{% endfor %}	
 			</div>			
 		</div>
