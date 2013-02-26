@@ -1,65 +1,24 @@
 {%extends 'base.html'%}
-{%block title%}My Blog{%endblock%}
+{% block title %}My Blog{% endblock %}
 
-{%block main%}
+{% block main %}
 	
-	<div id="top_header"> 
-		<ul>
-			<img src="/statics/pictures/shervin.jpg" height="80" width="60" id="avatar">
-			<span style="font-family:Steve; color:#FFA500;"><sup><sup>My Blog</sup></sup></span> 
-			<li><a href="about">درباره من</a></li>
-			<li><a href="/">خانه</a></li>
-		</ul>
-		
-	</div>
-	
-	<div id="main">	
-
-{%block content%}
-
-		<div id="top_content">
-			<span>خوش آمدید، <span>{{now}}</span></span>
-	
-	<div id="search-bar">
-		<form  method="get" action="">
-			<input type="submit" value="جستجو" name="q" class="btn" >
-			<input type="text"  class="search-query">
+	<div id="auth">
+		{% if errors %}
+			<ul id="error">
+				{% for error in errors%}
+				<li>{{error}}</li>
+				{% endfor %}
+			</ul>
+		<hr>
+		{% endif %}
+		<form action="authentication/" method="get">
+			<input type="text" value="" name="user" id="textbox"><br>
+			<input type="password" name="password" id="textbox"><br>
+			<input type="submit" value="Login" name="login" class="btn-en">
+			<input type="submit" value="Register" name="login" class="btn-en" action="registration/">			
 		</form>
-	</div>
-	
-		<div id="content">			
-			{% for i in post %}
-			<div id="box">
-				<p id="context_subject">{{i.Subject}}:</p>
-				<p id="context_post">{{i.Post}}</p>
-				<p id="context_name">{{i.Name}} <sub>{{i.Date}}- {{i.Time}}</sub></p><br/>
-				<hr size="3px" color="#4D4D4D">
-				<p id="comments">نظر:</p>
-			{%for j in comment%}	
-				<p id="comment_content">{{j.Content}} </p>
-				<p id="context_name">{{j.Name}} <sub>{{j.Date}}</sub></p><br/>
-				<hr>
-			{% endfor %}<br/>	
 			
-				<div id ="like_and_comment">
-				<button class="btn">پسندیدم</button>
-				<button class="btn"><a href="admin/data/comment/add/">نظر</a></button><br/>
-				<input type="text" value="نام شما " id="comment_name">
-				<textarea id="comment" value="نظر شما">نظر شما</textarea>
-				</div>
-			</div>			
-			{% endfor %}
-			</div>			
-		</div>
-		<br/>
 	</div>
-
-{%endblock%}
-
-{%block footer%}
-	<div id="footer">
-		<span><sub>Footer</sub></span>
-	</div>
-{%endblock%}
-{%endblock%}
+{% endblock %}
 

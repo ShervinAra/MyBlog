@@ -1,5 +1,5 @@
 import os
-
+from MyBlog.views import *
 from django.conf.urls import *
 from django.contrib import admin
 from django.conf import settings
@@ -22,8 +22,10 @@ urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
     #(r'^admin/', include(admin.site.urls)),
     (r'^$' , "MyBlog.views.homepage"),
+    (r'^authentication/$' , "MyBlog.views.auth"),
+    (r'^register/$' , "MyBlog.views.register"),
+    (r'^home/(\w*)/$' , "MyBlog.views.user_homepage"),
     (r'^about/$' , "MyBlog.views.about"),
-    (r'^search/$' , "MyBlog.views.search"),
     (r'^comments/', include('django.contrib.comments.urls')),
 )
 # Local media serving.
