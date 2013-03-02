@@ -1,66 +1,71 @@
+import datetime
+
 from django.http import HttpResponse , Http404 , HttpResponseRedirect
-from django.shortcuts import render_to_response
+from django.shortcuts import render_to_response as rr
 from django.contrib.auth.models import User
+from django.contrib.auth import authenticate, login
 from django.template import RequestContext
-from MyBlog.data.models import context as ct
-from MyBlog.data.models import comment as cm
+
+from MyBlog.data.models import context
+from MyBlog.data.models import comment
 from MyBlog.forms import auth_form
 
 
-import datetime
-now=datetime.datetime.now()
+now = datetime.datetime.now()
 
 
 def homepage(request):
 	form = auth_form()
-	return render_to_response('index.html', {'form':form,})
+	return rr('index.html', {'form':form,})
 
 
-def auth(request):	
-	errors= []
-	if request.method == 'GET' and 'user' and 'password' in request.GET:
-		if not request.GET.get('user','') and not request.GET.get('password',''):
-			errors.append('Enter username  and password.')
-			return HttpResponseRedirect('/')
-		elif not request.GET.get('password',''):
-			errors.append('Enter password.')
-			return HttpResponseRedirect("/")
-			return render_to_response('index.html', {'errors' : errors})
-		elif not request.GET.get('user',''):
-			errors.append('Enter user.')
-			return HttpResponseRedirect("../")
-			return render_to_response('index.html', {'errors' : errors})		
-		if request.GET['user'] and request.GET['password']:
-			user = request.GET['user']
-			password = request.GET['password']
-		else:
-			errors.append('Your request invalid.')
-			return render_to_response('index.html', {'errors' : errors})
-		if user == "shervin" and password == "shit":		
-			return HttpResponseRedirect("/home/%s/" %(user))
-			
-		else:
-			errors.append('Authentication failure')
-			return render_to_response('index.html', {'errors' : errors})
+def auth(request):
+	return HttpResponse(request.method)
+	if request.method == "POST":
+		if "login" in request.POST:
+			if request.POST["login"] == "Login":
+				return login_view(request)
+			elif request.POST["register"] == "Register":
+				return register_view(request)
+			else:
+				return rr('index.html',
+					  {"errors": "Use a submit button."},
+					  context_instance=RequestContext(request))
 	else:
-		errors.append('Your request invalid.')
-		return render_to_response('index.html', {'errors' : errors})		
+		return rr('index.html')
 
 
-def register(request):
+def login_view(request):
+	username = request.POST.get("username", None)
+	password = request.POST.get("password", None)
+
+	if not username or not password:
+		return rr("index.html", {'errors': "Invalid username or password"},
+			  context_instance=RequestContext(request))
+	user = authenticate(username=username, password=password)
+	if user:
+		login(request, user)
+		return HttpResponseRedirect("/home/%s" % username.username)
+	else:
+		return rr("index.html", {'errors': "Invalid username or password"},
+			  context_instance=RequestContext(request))
+
+
+def register_view(request):
 	pass
+	
 	
 
 def user_homepage(request,user):	
-	c=ct.objects.all()
-	cn=cm.objects.all()
-	return render_to_response('home.html',
+	contexts = context.objects.all()
+	comments = comment.objects.all()
+	return rr('home.html',
 		{'now':now,
-		'post':c,
-		'comment':cn,
+		'contexts':contexts,
+		'comments':comments,
 		'user':user},
 	context_instance=RequestContext(request))
 
 	
 def about(request):
-	return render_to_response('about.html',{'now':now,})
+	return rr('about.html',{'now':now,})

@@ -2,23 +2,37 @@
 {% block title %}My Blog{% endblock %}
 
 {% block main %}
-	
-	<div id="auth">
-		{% if errors %}
-			<ul id="error">
-				{% for error in errors%}
-				<li>{{error}}</li>
-				{% endfor %}
-			</ul>
-		<hr>
-		{% endif %}
-		<form action="authentication/" method="get">
-			<input type="text" value="" name="user" id="textbox"><br>
-			<input type="password" name="password" id="textbox"><br>
-			<input type="submit" value="Login" name="login" class="btn-en">
-			<input type="submit" value="Register" name="login" class="btn-en" action="registration/">			
-		</form>
-			
-	</div>
-{% endblock %}
+{% block top-menu%}
+        
+    <ul class="nav nav-tabs">
+      <li class="active"><a href="/">Home</a></li>
+      <li><a href="/about/">About</a></li>
+      <li><a href="/contact/">Contact</a></li>
+    </ul>
+     
 
+{% endblock%}   
+
+{% block content%}
+{% endblock%}
+
+{% block auth %}
+    <div id="auth">
+        {% if errors %}
+            <ul id="error">
+                
+                <li>{{errors}}</li>
+                
+            </ul>
+        <hr>
+        {% endif %}
+        <form action="/authentication/" method="POST"> {% csrf_token %}
+            <input type="text" value="" name="username" id="textbox"><br>
+            <input type="password" name="password" id="textbox"><br>
+            <input type="submit" value="Login" name="login" class="btn-en">
+            <input type="submit" value="Register" name="register" class="btn-en" action="registration/">           
+        </form>
+            
+    </div>
+{% endblock %}
+{% endblock %}
