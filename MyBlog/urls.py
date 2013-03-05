@@ -21,11 +21,12 @@ urlpatterns = patterns('',
     # Uncomment the next line to enable the admin:
     url(r'^admin/', include(admin.site.urls)),
     #(r'^admin/', include(admin.site.urls)),
-    (r'^$' , "MyBlog.views.homepage"),
-    (r'^authentication/$' , "MyBlog.views.auth"),
-    (r'^register/$' , "MyBlog.views.register_view"),
-    (r'^home/(\w*)/$' , "MyBlog.views.user_homepage"),
-    (r'^about/$' , "MyBlog.views.about"),
+    (r'^$', "MyBlog.views.authentication.homepage"),
+    (r'^register/$', "MyBlog.views.register.register_view"),
+    (r'^comment/$', "MyBlog.views.comment.comment_view"),
+    (r'^home/(\w*)/$', "MyBlog.views.user_homepage.user_homepage"),
+    (r'^about/$', "MyBlog.views.about.about"),
+    (r'^contact/$', "MyBlog.views.contact.contact_view"),
     (r'^comments/', include('django.contrib.comments.urls')),
 )
 # Local media serving.
