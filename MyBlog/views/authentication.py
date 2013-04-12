@@ -27,8 +27,8 @@ def homepage(request):
 											'form': form},
 					context_instance=RequestContext(request))
 
-		return rr('index.html', {"form": form},
-				context_instance=RequestContext(request))
+		#return rr('index.html', {"form": form},
+				#context_instance=RequestContext(request))
 	else:
 		form = AuthForm()
 		return rr('index.html', {'form':form},

@@ -22,7 +22,7 @@ def comment_view(request):
 			if not name or not comment:
 				return rr("home.html", {'errors': "Invalid username or password"})			
 			else:
-				cm = MyBlog.data.comment
+				cm = comment
 				cm.Name = name
 				cm.Content = content	
 				cm.save()
