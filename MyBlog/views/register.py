@@ -27,9 +27,8 @@ def register_view(request):
 			last_name = form.cleaned_data["last_name"]
 			email = form.cleaned_data["email"]
 			User.objects.create_user(username, email, password,)	
-			form = AuthForm()
-			#return rr('index.html', {"form": form},
-			#context_instance=RequestContext(request))
+			return rr('thanks_for_registration.html', 
+			context_instance=RequestContext(request))
 		return HttpResponseRedirect("/")
 		
 	else:
