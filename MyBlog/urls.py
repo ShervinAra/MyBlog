@@ -1,8 +1,9 @@
-import os
-from MyBlog.views import *
 from django.conf.urls import *
 from django.contrib import admin
 from django.conf import settings
+
+import os
+
 
 admin.autodiscover()
 
@@ -24,7 +25,7 @@ urlpatterns = patterns('',
     (r'^$', "MyBlog.views.authentication.homepage"),
     (r'^register/$', "MyBlog.views.register.register_view"),
     (r'^comment/$', "MyBlog.views.comment.comment_view"),
-    (r'^home/(\w+)/$', "MyBlog.views.user_homepage.user_homepage"),
+    (r'^users/(\w+)/$', "MyBlog.views.user_homepage.user_homepage"),
     (r'^about/$', "MyBlog.views.about.about"),
     (r'^contact/$', "MyBlog.views.contact.contact_view"),
     (r'^comments/', include('django.contrib.comments.urls')),

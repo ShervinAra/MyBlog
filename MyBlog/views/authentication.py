@@ -21,7 +21,7 @@ def homepage(request):
 			user = authenticate(username=username, password=password)
 			if user:
 				login(request, user)
-				return HttpResponseRedirect("/home/%s" % user.username)
+				return HttpResponseRedirect("/users/%s" % user.username)
 			else:
 				return rr("index.html", {'errors': "Invalid username or password",
 											'form': form},

@@ -8,13 +8,13 @@ from django.contrib.auth import authenticate, login
 from django.contrib.auth.models import User
 from django.template import RequestContext
 
-from MyBlog.data.models import context
-from MyBlog.data.models import comment
+from MyBlog.data.models import context, comment
 from MyBlog.forms import AuthForm
 from MyBlog.forms import RegisterForm
 
 
 now = datetime.datetime.now()
+
 
 def register_view(request):
 	if request.method == "POST":
@@ -31,4 +31,4 @@ def register_view(request):
 	else:
 		form = RegisterForm()
 		return rr('register.html', {'form':form},
-					context_instance=RequestContext(request))		
+			  context_instance=RequestContext(request))

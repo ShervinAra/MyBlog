@@ -5,21 +5,17 @@
 
 {% block main %}
 
-    <div id="top_header"> 
-        <ul>
-            <img src="/statics/pictures/shervin.jpg" height="80" width="60" id="avatar">
-            <span style="font-family:Steve; color:#FFA500;"><sup><sup>{{user}} Blog</sup></sup></span> 
-            <li><a href="about">درباره من</a></li>
-            <li><a href="/">خانه</a></li>
+    <div> 
+        <ul class="nav nav-tabs">
+		  <li class="active"><a href="">Home</a></li>
+		  <li><a href="/admin/">Admin</a></li>
+		  <li><a href="/">Logout</a></li>
         </ul>
         
     </div>
 
 
 {%block content%}
-    
-    <div id="main"> 
-
 
         <div id="top_content">
              <span>{{user}} welcome,<span> </span>{{now}}</span>
