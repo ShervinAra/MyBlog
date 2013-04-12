@@ -25,9 +25,13 @@ def register_view(request):
 			password_confirm = form.cleaned_data["password_confirm"]
 			first_name = form.cleaned_data["first_name"]
 			last_name = form.cleaned_data["last_name"]
-			email = form.cleaned_data["email"]	
-		return rr('index.html', {"form": form},
-			context_instance=RequestContext(request))
+			email = form.cleaned_data["email"]
+			User.objects.create_user(username, email, password,)	
+			form = AuthForm()
+			#return rr('index.html', {"form": form},
+			#context_instance=RequestContext(request))
+		return HttpResponseRedirect("/")
+		
 	else:
 		form = RegisterForm()
 		return rr('register.html', {'form':form},
