@@ -33,24 +33,28 @@
                 <p id="context_subject">{{context.Subject}}:</p>
                 <p id="context_post">{{context.Post}}</p>
                 <p id="context_name">{{context.Name}} <sub>{{context.Date}}- {{context.Time}}</sub></p><br/>
-                <hr size="3px" color="#4D4D4D">
+				<div id ="like_and_comment">
+					<button class="btn-fa">پسندیدم</button>
+					<button class="btn-fa">نظر</button><br/>
+					<form action="/comment/" method="POST">{% csrf_token %}
+					<input type="text" placeholder="نام شما " name="name" id="comment_name">
+					<textarea id="comment" placeholder="نظر شما" name="content"></textarea>
+					<input type="submit"  value="ارسال" name="send" class="btn-fa">
+					</form>
+				</div>       
+				<hr size="3px" color="#4D4D4D">            
                 <p id="comments">نظر:</p>
             {%for comment in context.relation%} 
                 <p id="comment_content">{{comment.Content}} </p>
                 <p id="context_name">{{comment.Name}} <sub>{{comment.Date}}</sub></p><br/>
+                <form action="/comment/edit" method="POST" style="diplay:inline;">{% csrf_token %}
+                <input type="submit" value="ویرایش" name="edit" class="btn-fa">
+                </form>
+                <form action="/comment/delete" method="POST">{% csrf_token %}
+                <input type="submit" value="حذف" name="delete" class="btn-fa">
+                </form>
                 <hr>            
             {% endfor %}<br/>
-            
-
-                <div id ="like_and_comment">
-                <button class="btn-fa">پسندیدم</button>
-                <button class="btn-fa">نظر</button><br/>
-                <form action="/comment/" method="POST">{% csrf_token %}
-                <input type="text" placeholder="نام شما " name="name" id="comment_name">
-                <textarea id="comment" placeholder="نظر شما" name="content"></textarea>
-                <input type="submit"  value="ارسال" name="send" class="btn-fa">
-                </form>
-                </div>
             </div>          
             {% endfor %}
             </div>          

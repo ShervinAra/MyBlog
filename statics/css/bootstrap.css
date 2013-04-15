@@ -3226,15 +3226,15 @@ button.close {
 
 
 .btn-fa {
-  display: inline-block;
+  display: inline;
   margin-right: 5px;
-  *display: inline;
+  display: inline;
   padding: 4px 12px;
   margin-bottom: 0px;
   *margin-left: .3em;
-  font-size: 15px;
+  font-size: 12px;
   font-family:  dastnevis;
-  line-height: 20px;
+  line-height: 15px;
   color:#1E90FF;
   text-align: center;
   text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
@@ -3263,6 +3263,9 @@ button.close {
      -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
           box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
 }
+.btn input[submit] {
+display:inline;
+} 
 
 .btn:hover,
 .btn:focus,

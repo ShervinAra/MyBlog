@@ -1,13 +1,12 @@
 @import url("bootstrap.css");
 body{padding:0px; margin:0px; background-color:#ffffff;font-family:dastnevis;}
 P {
-	opacity:2.0;
+	opacity:1.0;
 	}
 	
 p:hover {
 		opacity:0.5;
 		color:#A52A2A;
-		text-shadow: 1px 1px 1px #FF0000;
 		}
 		
 a:hover {

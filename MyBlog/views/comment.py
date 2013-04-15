@@ -16,13 +16,22 @@ now = datetime.datetime.now()
 
 def comment_view(request):
 	if request.method == "POST":
-		if "send" in request.POST:
+		if "name" in request.POST and "content" in request.POST:
+			return HttpResponse("ok")
 			name = request.POST.get("name", None)
 			content = request.POST.get("content", None)
 			if not name or not comment:
-				return rr("home.html", {'errors': "Invalid username or password"})			
+				return rr("home.html", {'errors': "Fields are empty"})			
 			else:
 				cm = comment
 				cm.Name = name
 				cm.Content = content	
 				cm.save()
+				return HttpResponse("ok")
+
+
+def edit_comment(request):
+	return HttpResponse("ok")
+	
+def delete_comment(request):
+	return HttpResponse("ok")	

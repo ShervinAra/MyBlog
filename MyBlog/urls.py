@@ -25,10 +25,12 @@ urlpatterns = patterns('',
     (r'^$', "MyBlog.views.authentication.homepage"),
     (r'^register/$', "MyBlog.views.register.register_view"),
     (r'^comment/$', "MyBlog.views.comment.comment_view"),
+    (r'^comment/edit$', "MyBlog.views.comment.edit_comment"),
+    (r'^comment/delete$', "MyBlog.views.comment.delete_comment"),
     (r'^users/(\w+)/$', "MyBlog.views.user_homepage.user_homepage"),
     (r'^about/$', "MyBlog.views.about.about"),
     (r'^contact/$', "MyBlog.views.contact.contact_view"),
-    (r'^comments/', include('django.contrib.comments.urls')),
+    #(r'^comments/', include('django.contrib.comments.urls')),
 )
 # Local media serving.
 if settings.DEBUG:
