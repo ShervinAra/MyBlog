@@ -1,7 +1,9 @@
 @import url("bootstrap.css");
-body{padding:0px; margin:0px; background-color:#ffffff;font-family:dastnevis;}
+
+body{padding:0px; margin:0px; background-color:#ffffff;font-family:dastnevis;background: #BFBFBF ; background-repeat:repeat -x;}
 P {
 	opacity:1.0;
+	
 	}
 	
 p:hover {
@@ -13,6 +15,10 @@ a:hover {
 
 		color:#A52A2A;
 		}
+		
+hr: {
+	background-color:4D4D4D;
+	}
 #top_header{background-color:#1A1A1A; position:relative; margin:0px; height:120px; font-size:16px; text-indent:0px; padding:2px; width:100%; border-style:solid outset; top:0px; border-color:#000000; border-width:1px; margin-left:auto; margin-right:auto;}
 #top_header a{text-decoration:none; color:#ffffff; border-radius:10px 15px 10px 15px; border-style:outset; border-color:#ffffff; border-width:2px; background-color:#ffffff; color:#1a1a1a; text-align:center; padding-left:5px; padding-right:5px;}
 #top_header li{list-style-type:disk; list-style-position:outside; display:inline; margin:20px; margin-top:0px;}
@@ -20,12 +26,13 @@ a:hover {
 #main{height:100%; padding:0px; margin:50px; margin-left:150px; margin-right:150px; background-color:#1a1a1a; background-repeat:repeat; background-position:center; position: relative; height:auto; border-radius:0px;}
 #top_content{text-indent:25px; height:100%;direction:ltr;background-repeat:repeat-x; background-color:#; margin-top:5px; border-radius:20px 35px; border-style:; border-color:#000000; padding:10px; font-size:20px;}
 #top_content span{text-align:left; color:#ffffff; text-indent:50px; font-family:delphine; font-size:30px; color:#1E90FF;}
-#content{height:100%;direction:rtl;background-repeat:repeat-x; background-color:#FFFFFF; color:; margin:10px; margin-left:20%; margin-right:20%; border-style:outset dashed ; border-width:1px; border-color:#FFFFFF; padding:1px; border-radius:30px; min-height:500px;}
-#footer{height:100px; background-color:#1a1a1a; color:#ffffff; clear:both; margin:0px; width:100%; padding:1px; margin-top:5px; bottom:0px; position:relative; border-style:solid outset; border-width:2px; border-color:#000000; text-indent:10px; margin-left:auto; margin-right:auto; margin-top:auto;}
+#content{height:100%;direction:rtl;background-repeat:repeat-x; background-color:#E5E5E5; color:; margin:10px; margin-left:20%; margin-right:20%; border-style:outset dashed ; border-width:1px; border-color:#000000; padding:1px; border-radius:30px; min-height:500px;}
+#footer{height:90px; background-color:#4D4D4D; color:#1E90FF; clear:both; margin:0px; padding-bottom:40px; margin-top:5px; bottom:0px; position:relative; border-top:1px solid #1E90FF; text-indent:10px; margin-left:auto; margin-right:auto; margin-top:auto; padding-left:30px;}
+#footer p{margin-top: 50px; text-align:center;}
 #avatar{border-style:solid outset; border-color:#ffffff; border-width:1px; height:70%; top:0px; margin-top:0px; padding:0px;}
-#context_subject{color:#1E90FF;font-family:dastnevis; font-size:26px;}
+#context_subject{color:#A52A2A;font-family:dastnevis; font-size:26px;}
 #context_post{color:#000000;font-family:dastnevis; font-size:20px; padding-right:50px;}
-#context_name{color:#FFA500;font-family:dastnevis; font-size:22px; text-align:left; padding-left:30px; margin-top:20px;}
+#context_name{color:#FFA500;font-family:delphine; font-size:20px; text-align:left; padding-left:30px; margin-top:20px;}
 #box{background-color:#E5E5E5; margin:50px; border-radius:15px 70px; border-style:outset dashed; border-width:1px; border-color:;}
 #comment li{display:inline; text-indent:10px; margin-left:10px;}
 #comment a{ text-decoration:none;}
@@ -41,3 +48,5 @@ a:hover {
 #error li{list-style-type:none;}
 #textbox{font-family:Steve; font-size:15px;}
 #test{position:; height:auto; background-color:#E5E5E5; margin:200px; padding:50px; width:; text-align:center; font-size:20px; border-radius:15px; font-family:; color:; border-style:outset dashed; border-width:1px;}
+#extend{display:inline;}
+#extend li{display:inline;}

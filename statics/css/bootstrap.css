@@ -3985,10 +3985,13 @@ input[type="submit"].btn.btn-mini {
   margin-bottom: 20px;
   margin-left: 0;
   list-style: none;
+  text-indent:20px;
 }
 
 .nav > li > a {
-  display: block;
+  display: inline;
+  margin-right:100px;
+  color: #1E90FF;
 }
 
 .nav > li > a:hover,
@@ -4094,10 +4097,14 @@ input[type="submit"].btn.btn-mini {
 
 .nav-tabs {
   border-bottom: 1px solid #ddd;
+  padding-top: 50px;
+  background-color: #4D4D4D;
+  border-bottom: 1px solid #1E90FF;
+  padding-left:30px;
 }
 
 .nav-tabs > li {
-  margin-bottom: -1px;
+  margin-bottom: 50px;
 }
 
 .nav-tabs > li > a {
@@ -4120,7 +4127,7 @@ input[type="submit"].btn.btn-mini {
 .nav-tabs > .active > a:focus {
   color: #555555;
   cursor: default;
-  background-color: #ffffff;
+  background-color: #BFBFBF;
   border: 1px solid #ddd;
   border-bottom-color: transparent;
 }

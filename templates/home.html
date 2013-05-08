@@ -7,7 +7,7 @@
 
     <div> 
         <ul class="nav nav-tabs">
-		  <li class="active"><a href="">Home</a></li>
+		  <li class="aactive"><a href="">Home</a></li>
 		  <li><a href="/admin/">Admin</a></li>
 		  <li><a href="/">Logout</a></li>
         </ul>
@@ -29,31 +29,46 @@
     
         <div id="content">          
             {% for context in contexts %}
-            <div id="box">
+            <div id="boox">
                 <p id="context_subject">{{context.Subject}}:</p>
                 <p id="context_post">{{context.Post}}</p>
-                <p id="context_name">{{context.Name}} <sub>{{context.Date}}- {{context.Time}}</sub></p><br/>
-				<div id ="like_and_comment">
-					<button class="btn-fa">پسندیدم</button>
-					<button class="btn-fa">نظر</button><br/>
+                <p id="context_name">{{context.Name}} {{context.Date}} - {{context.Time}} </p><br/>
+			<div id ="like_and_comment">
+		<ul class="nav">
+		  <li id="extend"><a href="" id="hideshow">نظر</a></li>
+		  <li id="extend"><a href="">پسندیدم</a></li> 
+		  
+		  <script type="text/javascript">
+			(document).ready(function(){
+				("#object").hide();
+				("#hideshow").show();
+			
+				('#hideshow').click(function(){
+					("#object").slidetoggle('show');
+					});
+			});
+		  </script>
+        </ul>
+					<div id="object">
 					<form action="/comment/" method="POST">{% csrf_token %}
 					<input type="text" placeholder="نام شما " name="name" id="comment_name">
 					<textarea id="comment" placeholder="نظر شما" name="content"></textarea>
 					<input type="submit"  value="ارسال" name="send" class="btn-fa">
 					</form>
+					</div>
 				</div>       
 				<hr size="3px" color="#4D4D4D">            
                 <p id="comments">نظر:</p>
             {%for comment in context.relation%} 
                 <p id="comment_content">{{comment.Content}} </p>
-                <p id="context_name">{{comment.Name}} <sub>{{comment.Date}}</sub></p><br/>
+                <p id="context_name">{{comment.Name}} {{comment.Date}}</p><br/>
                 <form action="/comment/edit" method="POST" style="diplay:inline;">{% csrf_token %}
                 <input type="submit" value="ویرایش" name="edit" class="btn-fa">
                 </form>
                 <form action="/comment/delete" method="POST">{% csrf_token %}
                 <input type="submit" value="حذف" name="delete" class="btn-fa">
                 </form>
-                <hr>            
+                <hr size="3px" color="#4D4D4D">            
             {% endfor %}<br/>
             </div>          
             {% endfor %}
@@ -66,7 +81,7 @@
 
 {%block footer%}
     <div id="footer">
-        <span><sub>Footer</sub></span>
+        <p>&copy;Copyright 2013 Shervin Ara </p>
     </div>
 {%endblock%}
 {%endblock%}
